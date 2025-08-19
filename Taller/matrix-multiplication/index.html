@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplicación de Matrices - Visualización</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="matrix.css">
+</head>
+<body>
+    <a href="../index.html" class="back-btn">← Volver</a>
+    
+    <div class="algorithm-container">
+        <div class="algorithm-header">
+            <h1>Multiplicación de Matrices</h1>
+            <p>Visualización paso a paso del algoritmo naive de multiplicación de matrices</p>
+        </div>
+
+        <div class="algorithm-description">
+            <h3>¿Cómo funciona?</h3>
+            <p>Para multiplicar dos matrices A y B, cada elemento C[i][j] de la matriz resultante se calcula como la suma del producto de los elementos correspondientes de la fila i de A y la columna j de B.</p>
+            <p><strong>Complejidad:</strong> Tiempo O(n³), Espacio O(n²)</p>
+            <p><strong>Fórmula:</strong> C[i][j] = Σ(A[i][k] × B[k][j]) para k = 0 hasta n-1</p>
+        </div>
+
+        <div class="controls">
+            <div class="input-group">
+                <label>Tamaño de matrices:</label>
+                <select id="matrixSize">
+                    <option value="2" selected>2x2</option>
+                    <option value="3">3x3</option>
+                    <option value="4">4x4</option>
+                </select>
+            </div>
+            <button id="generateBtn">Generar Matrices</button>
+            <button id="startBtn">Multiplicar</button>
+            <button id="resetBtn">Reiniciar</button>
+            <label>
+                Velocidad: 
+                <select id="speedSelect">
+                    <option value="1200">Lenta</option>
+                    <option value="600" selected>Normal</option>
+                    <option value="300">Rápida</option>
+                </select>
+            </label>
+        </div>
+
+        <div class="visualization">
+            <div id="matricesContainer">
+                <div class="matrix-section">
+                    <h4>Matriz A</h4>
+                    <div id="matrixA" class="matrix"></div>
+                </div>
+                <div class="operator">×</div>
+                <div class="matrix-section">
+                    <h4>Matriz B</h4>
+                    <div id="matrixB" class="matrix"></div>
+                </div>
+                <div class="operator">=</div>
+                <div class="matrix-section">
+                    <h4>Matriz C (Resultado)</h4>
+                    <div id="matrixC" class="matrix"></div>
+                </div>
+            </div>
+            
+            <div id="calculationArea">
+                <div id="currentCalculation"></div>
+                <div id="stepByStep"></div>
+            </div>
+            
+            <div id="statusContainer">
+                <div id="currentStep"></div>
+                <div id="stats">
+                    <div id="operations">Operaciones: 0</div>
+                    <div id="currentPosition">Posición: -</div>
+                </div>
+                <div id="result"></div>
+            </div>
+        </div>
+
+        <div class="algorithm-explanation">
+            <h3>Pasos del Algoritmo:</h3>
+            <ol>
+                <li>Para cada fila i de la matriz A</li>
+                <li>Para cada columna j de la matriz B</li>
+                <li>Calcular C[i][j] = Σ(A[i][k] × B[k][j]) para todos los k</li>
+                <li>Repetir hasta completar toda la matriz resultado</li>
+            </ol>
+            <p><strong>Condición:</strong> El número de columnas de A debe ser igual al número de filas de B.</p>
+        </div>
+    </div>
+
+    <script src="matrix.js"></script>
+</body>
+</html>

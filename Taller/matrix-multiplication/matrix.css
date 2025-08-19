@@ -1,0 +1,310 @@
+/* Estilos específicos para Multiplicación de Matrices */
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.input-group label {
+    font-weight: 500;
+    color: #4a5568;
+}
+
+#matricesContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+    padding: 1rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.matrix-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.matrix-section h4 {
+    margin: 0;
+    color: #4a5568;
+    font-size: 1.1rem;
+}
+
+.matrix {
+    display: grid;
+    gap: 4px;
+    padding: 1rem;
+    background: #f7fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    position: relative;
+}
+
+.matrix::before {
+    content: '[';
+    position: absolute;
+    left: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 3rem;
+    color: #4a5568;
+    font-weight: bold;
+}
+
+.matrix::after {
+    content: ']';
+    position: absolute;
+    right: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 3rem;
+    color: #4a5568;
+    font-weight: bold;
+}
+
+.matrix-cell {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border: 2px solid #cbd5e0;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #2d3748;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.matrix-cell.editable {
+    background: #edf2f7;
+}
+
+.matrix-cell.editable:hover {
+    background: #e2e8f0;
+    border-color: #a0aec0;
+}
+
+.matrix-cell.highlighted-row {
+    background: #fed7d7;
+    border-color: #fc8181;
+    color: #c53030;
+    transform: scale(1.05);
+}
+
+.matrix-cell.highlighted-col {
+    background: #bee3f8;
+    border-color: #63b3ed;
+    color: #2c5282;
+    transform: scale(1.05);
+}
+
+.matrix-cell.current-result {
+    background: #c6f6d5;
+    border-color: #68d391;
+    color: #2f855a;
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(104, 211, 145, 0.3);
+}
+
+.matrix-cell.calculating {
+    background: #fbb6ce;
+    border-color: #f687b3;
+    color: #97266d;
+    animation: pulse 0.5s ease-in-out infinite;
+}
+
+.operator {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #4a5568;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+}
+
+#calculationArea {
+    background: #f7fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    min-height: 120px;
+}
+
+#currentCalculation {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #4a5568;
+    text-align: center;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 6px;
+    border-left: 4px solid #667eea;
+}
+
+#stepByStep {
+    font-size: 1rem;
+    color: #4a5568;
+    text-align: center;
+    line-height: 1.6;
+    background: white;
+    padding: 1rem;
+    border-radius: 6px;
+    border-left: 4px solid #48bb78;
+}
+
+#statusContainer {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+#currentStep {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: #f7fafc;
+    border-radius: 8px;
+    border-left: 4px solid #667eea;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+#stats > div {
+    background: #f7fafc;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    font-weight: 500;
+}
+
+#operations {
+    color: #4a5568;
+}
+
+#currentPosition {
+    color: #d69e2e;
+}
+
+#result {
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#result.success {
+    background: #c6f6d5;
+    color: #2f855a;
+    border: 2px solid #68d391;
+}
+
+.algorithm-explanation {
+    background: #f7fafc;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-top: 2rem;
+    border-left: 4px solid #667eea;
+}
+
+.algorithm-explanation h3 {
+    color: #4a5568;
+    margin-bottom: 1rem;
+}
+
+.algorithm-explanation ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.algorithm-explanation li {
+    margin-bottom: 0.5rem;
+    color: #4a5568;
+}
+
+.algorithm-explanation p {
+    color: #4a5568;
+    font-style: italic;
+}
+
+/* Animaciones */
+@keyframes pulse {
+    0% { transform: scale(1.1); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1.1); }
+}
+
+@keyframes matrix-multiply {
+    0% { transform: scale(1); opacity: 0.7; }
+    50% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.7; }
+}
+
+.matrix-cell.multiplying {
+    animation: matrix-multiply 0.8s ease-in-out;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    #matricesContainer {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .matrix-cell {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    
+    .operator {
+        font-size: 1.5rem;
+        transform: rotate(90deg);
+    }
+    
+    .operator:nth-child(4) {
+        transform: rotate(0deg);
+    }
+    
+    #stats {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .matrix-cell {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+    }
+    
+    .matrix::before,
+    .matrix::after {
+        font-size: 2rem;
+    }
+}

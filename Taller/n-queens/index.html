@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>N-Reinas - Backtracking - Visualización</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="n-queens.css">
+</head>
+<body>
+    <a href="../index.html" class="back-btn">← Volver</a>
+    
+    <div class="algorithm-container">
+        <div class="algorithm-header">
+            <h1>Problema de las N-Reinas</h1>
+            <p>Visualización del algoritmo de backtracking para colocar N reinas sin ataques</p>
+        </div>
+
+        <div class="algorithm-description">
+            <h3>¿Cómo funciona?</h3>
+            <p>El algoritmo coloca reinas fila por fila en un tablero de ajedrez NxN, asegurándose de que ninguna reina pueda atacar a otra. Utiliza backtracking para retroceder cuando una colocación no es válida.</p>
+            <p><strong>Complejidad:</strong> Tiempo O(N!), Espacio O(N)</p>
+            <p><strong>Restricciones:</strong> Las reinas no pueden atacarse en la misma fila, columna o diagonal.</p>
+        </div>
+
+        <div class="controls">
+            <div class="input-group">
+                <label>Tamaño del tablero (N):</label>
+                <select id="boardSize">
+                    <option value="4" selected>4x4</option>
+                    <option value="5">5x5</option>
+                    <option value="6">6x6</option>
+                    <option value="7">7x7</option>
+                    <option value="8">8x8</option>
+                </select>
+            </div>
+            <button id="startBtn">Resolver N-Reinas</button>
+            <button id="resetBtn">Reiniciar</button>
+            <button id="findAllBtn">Encontrar Todas las Soluciones</button>
+            <label>
+                Velocidad: 
+                <select id="speedSelect">
+                    <option value="800">Lenta</option>
+                    <option value="400" selected>Normal</option>
+                    <option value="150">Rápida</option>
+                </select>
+            </label>
+        </div>
+
+        <div class="visualization">
+            <div id="boardContainer">
+                <div id="chessboard"></div>
+            </div>
+            <div id="statusContainer">
+                <div id="currentStep"></div>
+                <div id="stats">
+                    <div id="attempts">Intentos: 0</div>
+                    <div id="backtrackCount">Retrocesos: 0</div>
+                    <div id="solutionsFound">Soluciones: 0</div>
+                </div>
+                <div id="result"></div>
+            </div>
+        </div>
+
+        <div class="algorithm-explanation">
+            <h3>Pasos del Algoritmo:</h3>
+            <ol>
+                <li>Comenzar con la primera fila</li>
+                <li>Para cada columna en la fila actual, verificar si es seguro colocar una reina</li>
+                <li>Si es seguro, colocar la reina y avanzar a la siguiente fila</li>
+                <li>Si no es seguro en ninguna columna, retroceder (backtrack) a la fila anterior</li>
+                <li>Repetir hasta encontrar una solución o agotar todas las posibilidades</li>
+            </ol>
+            <p><strong>Condiciones de seguridad:</strong> No hay otras reinas en la misma columna, diagonal principal o diagonal secundaria.</p>
+        </div>
+    </div>
+
+    <script src="n-queens.js"></script>
+</body>
+</html>

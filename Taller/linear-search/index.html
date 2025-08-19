@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Búsqueda Lineal - Visualización</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="linear-search.css">
+</head>
+<body>
+    <a href="../index.html" class="back-btn">← Volver</a>
+    
+    <div class="algorithm-container">
+        <div class="algorithm-header">
+            <h1>Búsqueda Lineal</h1>
+            <p>Visualización paso a paso del algoritmo de búsqueda secuencial</p>
+        </div>
+
+        <div class="algorithm-description">
+            <h3>¿Cómo funciona?</h3>
+            <p>La búsqueda lineal recorre secuencialmente cada elemento de la lista hasta encontrar el elemento objetivo o agotar todos los elementos. Es el algoritmo de búsqueda más simple pero no el más eficiente.</p>
+            <p><strong>Complejidad:</strong> Tiempo O(n), Espacio O(1)</p>
+        </div>
+
+        <div class="controls">
+            <input type="text" id="arrayInput" placeholder="Ingresa números separados por comas" value="5, 2, 9, 1, 7, 3, 8">
+            <input type="number" id="targetInput" placeholder="Número a buscar" value="1">
+            <button id="startBtn">Iniciar Búsqueda</button>
+            <button id="resetBtn">Reiniciar</button>
+            <label>
+                Velocidad: 
+                <select id="speedSelect">
+                    <option value="1000">Lenta</option>
+                    <option value="500" selected>Normal</option>
+                    <option value="200">Rápida</option>
+                </select>
+            </label>
+        </div>
+
+        <div class="visualization">
+            <div id="arrayContainer"></div>
+            <div id="statusContainer">
+                <div id="currentStep"></div>
+                <div id="comparisons">Comparaciones: 0</div>
+                <div id="result"></div>
+            </div>
+        </div>
+
+        <div class="algorithm-explanation">
+            <h3>Pasos del Algoritmo:</h3>
+            <ol>
+                <li>Comenzar desde el primer elemento del arreglo</li>
+                <li>Comparar el elemento actual con el objetivo</li>
+                <li>Si coinciden, devolver el índice</li>
+                <li>Si no coinciden, avanzar al siguiente elemento</li>
+                <li>Repetir hasta encontrar el elemento o llegar al final</li>
+            </ol>
+        </div>
+    </div>
+
+    <script src="linear-search.js"></script>
+</body>
+</html>

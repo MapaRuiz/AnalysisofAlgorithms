@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TSP - Fuerza Bruta - Visualización</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="tsp.css">
+</head>
+<body>
+    <a href="../index.html" class="back-btn">← Volver</a>
+    
+    <div class="algorithm-container">
+        <div class="algorithm-header">
+            <h1>Problema del Viajante de Comercio (TSP)</h1>
+            <p>Visualización del algoritmo de fuerza bruta para encontrar la ruta más corta</p>
+        </div>
+
+        <div class="algorithm-description">
+            <h3>¿Cómo funciona?</h3>
+            <p>El algoritmo evalúa todas las permutaciones posibles de ciudades para encontrar la ruta más corta que visite todas las ciudades exactamente una vez y regrese al punto de origen.</p>
+            <p><strong>Complejidad:</strong> Tiempo O(n!), Espacio O(n)</p>
+            <p><strong>Nota:</strong> Debido a la complejidad factorial, se recomienda usar máximo 8 ciudades para una visualización fluida.</p>
+        </div>
+
+        <div class="controls">
+            <div class="input-group">
+                <label>Número de ciudades:</label>
+                <select id="cityCount">
+                    <option value="4" selected>4 ciudades</option>
+                    <option value="5">5 ciudades</option>
+                    <option value="6">6 ciudades</option>
+                    <option value="7">7 ciudades</option>
+                    <option value="8">8 ciudades</option>
+                </select>
+            </div>
+            <button id="generateBtn">Generar Ciudades</button>
+            <button id="startBtn">Iniciar TSP</button>
+            <button id="resetBtn">Reiniciar</button>
+            <label>
+                Velocidad: 
+                <select id="speedSelect">
+                    <option value="1000">Lenta</option>
+                    <option value="300" selected>Normal</option>
+                    <option value="100">Rápida</option>
+                </select>
+            </label>
+        </div>
+
+        <div class="visualization">
+            <div id="mapContainer">
+                <svg id="mapSvg" width="600" height="400">
+                    <!-- Las ciudades y rutas se dibujarán aquí -->
+                </svg>
+            </div>
+            <div id="statusContainer">
+                <div id="currentStep"></div>
+                <div id="stats">
+                    <div id="permutations">Permutaciones evaluadas: 0</div>
+                    <div id="currentDistance">Distancia actual: -</div>
+                    <div id="bestDistance">Mejor distancia: -</div>
+                </div>
+                <div id="result"></div>
+            </div>
+        </div>
+
+        <div class="algorithm-explanation">
+            <h3>Pasos del Algoritmo:</h3>
+            <ol>
+                <li>Generar todas las permutaciones posibles de ciudades</li>
+                <li>Para cada permutación, calcular la distancia total de la ruta</li>
+                <li>Mantener registro de la ruta con menor distancia</li>
+                <li>Retornar la ruta óptima encontrada</li>
+            </ol>
+            <p><strong>Fórmula de distancia:</strong> √[(x₂-x₁)² + (y₂-y₁)²]</p>
+        </div>
+    </div>
+
+    <script src="tsp.js"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku Solver - Backtracking - Visualización</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="sudoku.css">
+</head>
+<body>
+    <a href="../index.html" class="back-btn">← Volver</a>
+    
+    <div class="algorithm-container">
+        <div class="algorithm-header">
+            <h1>Sudoku Solver</h1>
+            <p>Visualización del algoritmo de backtracking para resolver Sudoku</p>
+        </div>
+
+        <div class="algorithm-description">
+            <h3>¿Cómo funciona?</h3>
+            <p>El algoritmo rellena celdas vacías probando números del 1 al 9, verificando que no violen las restricciones del Sudoku. Utiliza backtracking para retroceder cuando no encuentra una solución válida.</p>
+            <p><strong>Complejidad:</strong> Tiempo O(9^(n²)), Espacio O(n²)</p>
+            <p><strong>Restricciones:</strong> Cada fila, columna y bloque 3x3 debe contener los números del 1 al 9 sin repetición.</p>
+        </div>
+
+        <div class="controls">
+            <div class="preset-group">
+                <label>Puzzles predefinidos:</label>
+                <select id="presetSelect">
+                    <option value="easy">Fácil</option>
+                    <option value="medium" selected>Medio</option>
+                    <option value="hard">Difícil</option>
+                    <option value="empty">Vacío</option>
+                </select>
+                <button id="loadPresetBtn">Cargar</button>
+            </div>
+            <button id="generateBtn">Generar Aleatorio</button>
+            <button id="solveBtn">Resolver Sudoku</button>
+            <button id="clearBtn">Limpiar</button>
+            <label>
+                Velocidad: 
+                <select id="speedSelect">
+                    <option value="300">Lenta</option>
+                    <option value="100" selected>Normal</option>
+                    <option value="50">Rápida</option>
+                    <option value="10">Muy Rápida</option>
+                </select>
+            </label>
+        </div>
+
+        <div class="visualization">
+            <div id="sudokuContainer">
+                <div id="sudokuGrid"></div>
+            </div>
+            
+            <div id="statusContainer">
+                <div id="currentStep"></div>
+                <div id="stats">
+                    <div id="attempts">Intentos: 0</div>
+                    <div id="backtrackCount">Retrocesos: 0</div>
+                    <div id="cellsFilled">Celdas llenadas: 0</div>
+                </div>
+                <div id="result"></div>
+            </div>
+        </div>
+
+        <div class="algorithm-explanation">
+            <h3>Pasos del Algoritmo:</h3>
+            <ol>
+                <li>Encontrar la primera celda vacía</li>
+                <li>Probar números del 1 al 9 en esa celda</li>
+                <li>Verificar si el número es válido (no viola restricciones)</li>
+                <li>Si es válido, colocar el número y continuar recursivamente</li>
+                <li>Si no es válido o no lleva a solución, retroceder (backtrack)</li>
+                <li>Repetir hasta resolver completamente o determinar que no hay solución</li>
+            </ol>
+            <p><strong>Validación:</strong> Un número es válido si no aparece en la misma fila, columna o bloque 3x3.</p>
+        </div>
+    </div>
+
+    <script src="sudoku.js"></script>
+</body>
+</html>

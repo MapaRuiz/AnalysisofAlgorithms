@@ -1,0 +1,204 @@
+/* Estilos específicos para TSP */
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.input-group label {
+    font-weight: 500;
+    color: #4a5568;
+}
+
+#mapContainer {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+    background: white;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+#mapSvg {
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    background: #f9fafb;
+}
+
+/* Estilos para elementos SVG */
+.city {
+    fill: #4299e1;
+    stroke: #2b6cb0;
+    stroke-width: 2;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.city:hover {
+    fill: #3182ce;
+    r: 8;
+}
+
+.city.start {
+    fill: #48bb78;
+    stroke: #2f855a;
+}
+
+.city-label {
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    fill: #2d3748;
+    text-anchor: middle;
+    dominant-baseline: central;
+    pointer-events: none;
+}
+
+.route-line {
+    stroke: #a0aec0;
+    stroke-width: 2;
+    fill: none;
+    opacity: 0.6;
+}
+
+.current-route {
+    stroke: #f56565;
+    stroke-width: 3;
+    opacity: 0.8;
+    stroke-dasharray: 5,5;
+    animation: dash 1s linear infinite;
+}
+
+.best-route {
+    stroke: #48bb78;
+    stroke-width: 4;
+    opacity: 1;
+}
+
+@keyframes dash {
+    to {
+        stroke-dashoffset: -10;
+    }
+}
+
+#statusContainer {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+#currentStep {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: #f7fafc;
+    border-radius: 8px;
+    border-left: 4px solid #667eea;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+#stats > div {
+    background: #f7fafc;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+}
+
+#permutations {
+    color: #4a5568;
+}
+
+#currentDistance {
+    color: #d69e2e;
+}
+
+#bestDistance {
+    color: #38a169;
+    font-weight: bold;
+}
+
+#result {
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#result.success {
+    background: #c6f6d5;
+    color: #2f855a;
+    border: 2px solid #68d391;
+}
+
+.algorithm-explanation {
+    background: #f7fafc;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-top: 2rem;
+    border-left: 4px solid #667eea;
+}
+
+.algorithm-explanation h3 {
+    color: #4a5568;
+    margin-bottom: 1rem;
+}
+
+.algorithm-explanation ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.algorithm-explanation li {
+    margin-bottom: 0.5rem;
+    color: #4a5568;
+}
+
+.algorithm-explanation p {
+    color: #4a5568;
+    font-style: italic;
+}
+
+/* Animaciones */
+@keyframes pulse-city {
+    0% { r: 6; }
+    50% { r: 8; }
+    100% { r: 6; }
+}
+
+.city.visiting {
+    animation: pulse-city 0.5s ease-in-out;
+    fill: #f56565;
+    stroke: #c53030;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    #mapSvg {
+        width: 100%;
+        height: 300px;
+    }
+    
+    #stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .input-group {
+        width: 100%;
+    }
+}
