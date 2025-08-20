@@ -1,4 +1,4 @@
-name: Deploy Taller to GitHub Pages
+name: Deploy Taller on GitHub Pages
 
 on:
   push:
